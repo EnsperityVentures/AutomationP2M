@@ -1,9 +1,3 @@
-/* ------------------------------------------------------------------------*/
-/* File Name : CalendarShow.aspx.cs                                        */
-/* Created By : Khalid Mohammad                                            */
-/* Creation Date :06/02/2011 03:15 PM                                      */
-/* Comment  : For Popup Calendar                                           */
-/* ------------------------------------------------------------------------*/
 using System;
 using System.Data;
 using System.Configuration;

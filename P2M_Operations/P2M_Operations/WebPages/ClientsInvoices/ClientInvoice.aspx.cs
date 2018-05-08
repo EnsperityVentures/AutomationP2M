@@ -21,6 +21,7 @@ namespace P2M_Operations.WebPages.ClientsInvoices
 {
     public partial class ClientsInvoices : System.Web.UI.Page
     {
+        //here we define some variable to use them in ervey methods 
         string uppath = @"~/Upload/ClientsInvoices/ClientsInvoices.csv";
         static string archivepath = @"~/Archive/ClientsInvoices";
         static string date = System.DateTime.Now.ToString("ddMMyyhhmmss");
@@ -33,26 +34,32 @@ namespace P2M_Operations.WebPages.ClientsInvoices
         static int company;
         protected void Page_Load(object sender, EventArgs e)
         {
+            //cheking if there is an file in that path.
             if (File.Exists(Server.MapPath(uppath)))
+            {
                 ReadWriteCSVFile();
+            }
             if (!IsPostBack)
             {
-
+                // Calender is visible so we need to hide it.
                 Calendar1.Visible = false;
                 Calendar2.Visible = false;
                 FillCompanyddl();
             }
 
-            //company = Convert.ToInt32(CompanyDDL.SelectedValue);
+            
         }
+        // This method needed to pass parameters to get data from Client Invice Table  
         private void GetClinetInvoice(string OrederNo, string empID, int company, DateTime sdate, DateTime edate)
         {
-            string ONO = OrederNo;
-            string empid = empID;
+            // Creating object from DAl Class to call methods 
             ClientsInvoicesDAL clientsInvoicesDAL = new ClientsInvoicesDAL();
+            //sending  Connection String information.
             clientsInvoicesDAL.ConnectionString = ConfigurationManager.ConnectionStrings["MySQLConn"].ToString();
             sdate = Convert.ToDateTime(tbSDate.Text);
-            List<Clients_Invoices> ClientInvoiceList = clientsInvoicesDAL.GetClientsInvoices(ONO, empid, sdate, edate, company);
+            // retrieving list of data 
+            List<Clients_Invoices> ClientInvoiceList = clientsInvoicesDAL.GetClientsInvoices(OrederNo, empID, sdate, edate, company);
+            //Binding GridView with data
             gvClinetInv.DataSource = ClientInvoiceList;
             gvClinetInv.DataBind();
         }
@@ -61,8 +68,10 @@ namespace P2M_Operations.WebPages.ClientsInvoices
             string date = System.DateTime.Now.ToString("ddMMyyhhmmss");
             if (File.Exists(Server.MapPath(uppath)))
             {
+                //Start Stream Reading and Writing 
                 StreamReader sr = new StreamReader(Server.MapPath(uppath));
                 StreamWriter write = new StreamWriter(Server.MapPath(output));
+                //Create objects to read CSV file.
                 CsvReader csvread = new CsvReader(sr);
                 CsvWriter csw = new CsvWriter(write);
                 IEnumerable<Clients_Invoices> record = csvread.GetRecords<Clients_Invoices>();
@@ -122,6 +131,7 @@ namespace P2M_Operations.WebPages.ClientsInvoices
         {
             if (e.CommandName == "DeleteOrder")
             {
+                //Deleting recored that Needed
                 ClientsInvoicesDAL clientInvoice = new ClientsInvoicesDAL();
                 clientInvoice.ConnectionString = ConfigurationManager.ConnectionStrings["MySQLConn"].ToString();
                 clientInvoice.DeleteClientsInvoices(e.CommandArgument.ToString());
@@ -130,6 +140,7 @@ namespace P2M_Operations.WebPages.ClientsInvoices
         }
         protected void bntBack_Click(object sender, EventArgs e)
         {
+            //cancelling the edit
             gvClinetInv.EditIndex = -1;
         }
         protected void gvClinetInv_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -160,6 +171,7 @@ namespace P2M_Operations.WebPages.ClientsInvoices
         }
         private void FillDDL(DropDownList ddl, string selectedText)
         {
+            //filling DDL
             //ddl.Items.Insert(0, new ListItem("None", "-1"));
             ddl.Items.Add(new System.Web.UI.WebControls.ListItem("None", "-1"));
             ddl.Items.Add(new System.Web.UI.WebControls.ListItem("Not Available", "0"));
@@ -181,18 +193,21 @@ namespace P2M_Operations.WebPages.ClientsInvoices
         }
         protected void gvClinetInv_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
+            //cancelling the edit
             company = Convert.ToInt32(CompanyDDL.SelectedValue);
             gvClinetInv.EditIndex = -1;
             GetClinetInvoice(search, search, company, sdate, edate);
         }
         protected void gvClinetInv_RowEditing(object sender, GridViewEditEventArgs e)
         {
+            //starting the edit
             int company = Convert.ToInt32(CompanyDDL.SelectedValue);
             gvClinetInv.EditIndex = e.NewEditIndex;
             GetClinetInvoice(search, search, company, sdate, edate);
         }
         protected void ButtonSearch_Click(object sender, EventArgs e)
         {
+            //choosing search criteria 
             sdate = Convert.ToDateTime(tbSDate.Text);
             edate = Convert.ToDateTime(tbEDate.Text);
             ClientsInvoicesDAL clientsInvoicesDAL = new ClientsInvoicesDAL();
@@ -223,6 +238,7 @@ namespace P2M_Operations.WebPages.ClientsInvoices
         }
         protected void gvClinetInv_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
+            // Create object from dal and fetching data after updating in gridview and send it to update. 
             ClientsInvoicesDAL clientsInvoicesDAL = new ClientsInvoicesDAL();
             clientsInvoicesDAL.ConnectionString = ConfigurationManager.ConnectionStrings["MySQLConn"].ToString();
             Clients_Invoices com = new Clients_Invoices();
@@ -250,7 +266,7 @@ namespace P2M_Operations.WebPages.ClientsInvoices
         protected void imgPopup1_Click(object sender, ImageClickEventArgs e)
         {
 
-
+            //showing calender after click it 
             if (Calendar1.Visible)
             {
                 Calendar1.Visible = false;
@@ -265,6 +281,7 @@ namespace P2M_Operations.WebPages.ClientsInvoices
         }
         protected void imgPopup_Click(object sender, ImageClickEventArgs e)
         {
+            //showing calender after click it 
             if (Calendar2.Visible)
             {
                 Calendar2.Visible = false;
@@ -278,6 +295,7 @@ namespace P2M_Operations.WebPages.ClientsInvoices
         }
         protected void Calendar1_SelectionChanged(object sender, EventArgs e)
         {
+            //choosing date after pressing it
            // tbSDate.Text = Calendar1.SelectedDate.Value.ToString();
             string date = Request.Form[tbSDate.UniqueID];
             Calendar1.Visible = false;
@@ -287,6 +305,7 @@ namespace P2M_Operations.WebPages.ClientsInvoices
         }
         protected void Calendar2_SelectionChanged(object sender, EventArgs e)
         {
+            //choosing date after pressing it
             tbEDate.Text = Calendar2.SelectedDate.ToShortDateString();
 
             Calendar2.Visible = false;
@@ -295,6 +314,7 @@ namespace P2M_Operations.WebPages.ClientsInvoices
         }
         protected void FillCompanyddl()
         {
+            //Connecting to Database to get list of companies name to use it in search criteria
             CompanyDDL.Items.Insert(0, new System.Web.UI.WebControls.ListItem("--Select Company--", "0"));
             string constr = ConfigurationManager.ConnectionStrings["MySQLConn"].ConnectionString;
             using (MySqlConnection con = new MySqlConnection(constr))
@@ -319,13 +339,15 @@ namespace P2M_Operations.WebPages.ClientsInvoices
             }
         }
         protected void gvClinetInv_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
+        { 
+            // to navigate between pages.
             gvClinetInv.PageIndex = e.NewPageIndex;
             GetClinetInvoice(search, search, company, sdate, edate);
             //lblPage.Text = "Displaying Page" + (gvClinetInv.PageIndex + 1).ToString() + "of" + gvClinetInv.PageCount.ToString();
         }
         protected void BtnExport_Click(object sender, EventArgs e)
         {
+            //exporting a csv file 
         int company = Convert.ToInt32(CompanyDDL.SelectedValue);
         DateTime sdate = Convert.ToDateTime(tbSDate.Text);
         DateTime edate = Convert.ToDateTime(tbEDate.Text);

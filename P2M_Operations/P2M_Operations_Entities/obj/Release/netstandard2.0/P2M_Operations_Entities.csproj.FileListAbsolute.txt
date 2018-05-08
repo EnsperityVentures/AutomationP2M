@@ -1,0 +1,9 @@
+C:\Users\Odai\Documents\GitHub\AutomationP2M\P2M_Operations\P2M_Operations_Entities\bin\Release\netstandard2.0\P2M_Operations_Entities.deps.json
+C:\Users\Odai\Documents\GitHub\AutomationP2M\P2M_Operations\P2M_Operations_Entities\bin\Release\netstandard2.0\P2M_Operations_Entities.dll
+C:\Users\Odai\Documents\GitHub\AutomationP2M\P2M_Operations\P2M_Operations_Entities\bin\Release\netstandard2.0\P2M_Operations_Entities.pdb
+C:\Users\Odai\Documents\GitHub\AutomationP2M\P2M_Operations\P2M_Operations_Entities\obj\Release\netstandard2.0\P2M_Operations_Entities.csprojResolveAssemblyReference.cache
+C:\Users\Odai\Documents\GitHub\AutomationP2M\P2M_Operations\P2M_Operations_Entities\obj\Release\netstandard2.0\P2M_Operations_Entities.csproj.CoreCompileInputs.cache
+C:\Users\Odai\Documents\GitHub\AutomationP2M\P2M_Operations\P2M_Operations_Entities\obj\Release\netstandard2.0\P2M_Operations_Entities.AssemblyInfoInputs.cache
+C:\Users\Odai\Documents\GitHub\AutomationP2M\P2M_Operations\P2M_Operations_Entities\obj\Release\netstandard2.0\P2M_Operations_Entities.AssemblyInfo.cs
+C:\Users\Odai\Documents\GitHub\AutomationP2M\P2M_Operations\P2M_Operations_Entities\obj\Release\netstandard2.0\P2M_Operations_Entities.dll
+C:\Users\Odai\Documents\GitHub\AutomationP2M\P2M_Operations\P2M_Operations_Entities\obj\Release\netstandard2.0\P2M_Operations_Entities.pdb

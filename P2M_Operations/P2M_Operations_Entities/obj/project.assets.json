@@ -357,11 +357,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\Users\\Odai\\Documents\\GitHub\\P2MAutomatiom\\P2M_Operations\\P2M_Operations_Entities\\P2M_Operations_Entities.csproj",
+      "projectUniqueName": "C:\\Users\\Odai\\Documents\\GitHub\\AutomationP2M\\P2M_Operations\\P2M_Operations_Entities\\P2M_Operations_Entities.csproj",
       "projectName": "P2M_Operations_Entities",
-      "projectPath": "C:\\Users\\Odai\\Documents\\GitHub\\P2MAutomatiom\\P2M_Operations\\P2M_Operations_Entities\\P2M_Operations_Entities.csproj",
+      "projectPath": "C:\\Users\\Odai\\Documents\\GitHub\\AutomationP2M\\P2M_Operations\\P2M_Operations_Entities\\P2M_Operations_Entities.csproj",
       "packagesPath": "C:\\Users\\Odai\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Odai\\Documents\\GitHub\\P2MAutomatiom\\P2M_Operations\\P2M_Operations_Entities\\obj\\",
+      "outputPath": "C:\\Users\\Odai\\Documents\\GitHub\\AutomationP2M\\P2M_Operations\\P2M_Operations_Entities\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\"
