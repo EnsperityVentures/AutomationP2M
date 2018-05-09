@@ -5,6 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Gift Cards Invoices</title>
+    <link href="../../css/Main.css" rel="stylesheet" />
     <script type="text/javascript">
         function Confirm() {
             var confirm_value = document.createElement("INPUT");
@@ -22,121 +23,131 @@
 <body>
     <form id="GiftCardsInvoicesform" runat="server">
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-        <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal">
+        <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" CssClass="tab" StaticMenuItemStyle-CssClass="tabs" StaticHoverStyle-BackColor="#f1f1f1"
+            StaticSelectedStyle-BackColor="#f1f1f1" StaticSelectedStyle-Font-Bold="true" StaticMenuItemStyle-Height="20px" StaticMenuItemStyle-VerticalPadding="15px"
+            StaticMenuItemStyle-HorizontalPadding="10px" StaticMenuItemStyle-ForeColor="Black">
             <Items>
+                <asp:MenuItem ImageUrl="~/images/P2M-Logo_1.png" Selectable="false"></asp:MenuItem>
                 <asp:MenuItem NavigateUrl="~/WebPages/ClientsInvoices/ClientInvoice.aspx" Text="Clients Invoices" Value="Clients Invoices"></asp:MenuItem>
                 <asp:MenuItem NavigateUrl="~/WebPages/Company/CompanyPage.aspx" Text="Company" Value="New Item"></asp:MenuItem>
                 <asp:MenuItem NavigateUrl="~/WebPages/Currency/CurrencyPage.aspx" Text="Currency" Value="New Item"></asp:MenuItem>
                 <asp:MenuItem NavigateUrl="~/WebPages/Department/DepartmentPage.aspx" Text="Departments" Value="New Item"></asp:MenuItem>
                 <asp:MenuItem NavigateUrl="~/WebPages/Fees/FeesPage.aspx" Text="Fees" Value="New Item"></asp:MenuItem>
-                <asp:MenuItem NavigateUrl="~/WebPages/GiftCardsInvoice/GiftCardsInvoices.aspx" Text="Gift Cards Invoices" Value="New Item"></asp:MenuItem>
+                <asp:MenuItem NavigateUrl="~/WebPages/GiftCardsInvoice/GiftCardsInvoices.aspx" Selected="true" Text="Gift Cards Invoices" Value="New Item"></asp:MenuItem>
                 <asp:MenuItem NavigateUrl="~/WebPages/Members/MembersPage.aspx" Text="Members" Value="New Item"></asp:MenuItem>
                 <asp:MenuItem NavigateUrl="~/WebPages/OmanFloat/OmanFloatsPage.aspx" Text="Oman Float" Value="New Item"></asp:MenuItem>
                 <asp:MenuItem NavigateUrl="~/WebPages/DailyOrders/DailyOrders.aspx" Text="Daily Orders" Value="New Item"></asp:MenuItem>
                 <asp:MenuItem NavigateUrl="~/WebPages/OmanAmount/OmanAmountPage.aspx" Text="Oman Amount" Value="New Item"></asp:MenuItem>
             </Items>
         </asp:Menu>
-        <div style="margin-left: auto; margin-top: auto; margin-bottom: auto; margin-right: auto; text-align: center; display: block;">
+        <div class="container">
+            <div class="panel">
+            <h1 class="header"><span>Search</span></h1>
             <asp:Panel ID="PanelSearch" runat="server" DefaultButton="ButtonSearch">
-                <table>
+                <table class="search-box">
                     <tr>
                         <td>
-                            <asp:Label ID="lblSearchOrderNo" runat="server" Text="OrderNo"></asp:Label></td>
+                            <asp:Label ID="lblSearchOrderNo" runat="server" Text="Order No"></asp:Label></td>
                         <td>
-                            <asp:TextBox ID="tbSearchOrderNo" runat="server" MaxLength="50" Width="200px" placeholder="OrderNo..."></asp:TextBox></td>
-                    </tr>
-                    <tr>
+                            <asp:TextBox ID="tbSearchOrderNo" runat="server" MaxLength="50" CssClass="input-small" placeholder="Order No..."></asp:TextBox></td>
                         <td>
                             <asp:Label ID="lblSearchEmpID" runat="server" Text="Employee ID"></asp:Label></td>
                         <td>
-                            <asp:TextBox ID="tbSearchEmpID" runat="server" MaxLength="50" Width="200px" placeholder="EmpolyeeNumber..."></asp:TextBox></td>
+                            <asp:TextBox ID="tbSearchEmpID" runat="server" MaxLength="50" CssClass="input-small" placeholder="Empolyee ID..."></asp:TextBox></td>
                     </tr>
                     <tr>
+                        <td>
+                            <asp:Label ID="lblstartdate" runat="server" Text="From" Visible="true" />
+                        </td>
+                        <td>
+                            <div class="field-wrap">
+                                <asp:TextBox ID="tbSDate" ReadOnly="true" TextMode="Date" CssClass="embeded-save-field" runat="server"></asp:TextBox>
+                                <asp:ImageButton CssClass="embeded-save-btn" ID="imgPopup1" ImageUrl="~/images/calendarSm_htl_New.png"
+                                    runat="server" OnClick="imgPopup1_Click" />
+                            </div>
+                            <div style="position: absolute;">
+                                <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                    <ContentTemplate>
+                                        <asp:Calendar ID="Calendar1" runat="server" BorderWidth="1px"
+                                            DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" Height="200px"
+                                            ShowGridLines="True" Width="387px" BackColor="#FFFFCC" BorderColor="#FFCC66"
+                                            ForeColor="#663399" OnSelectionChanged="Calendar1_SelectionChanged">
+                                            <DayHeaderStyle BackColor="#FFCC66" Font-Bold="True" Height="1px" />
+                                            <NextPrevStyle Font-Size="9pt" ForeColor="#FFFFCC" />
+                                            <OtherMonthDayStyle ForeColor="#CC9966" />
+                                            <SelectedDayStyle BackColor="#CCCCFF" Font-Bold="True" />
+                                            <SelectorStyle BackColor="#FFCC66" />
+                                            <TitleStyle BackColor="#990000" Font-Bold="True" Font-Size="9pt"
+                                                ForeColor="#FFFFCC" />
+                                            <TodayDayStyle BackColor="#FFCC66" ForeColor="White" />
+                                            <WeekendDayStyle Font-Names="Calibri" />
+                                        </asp:Calendar>
+                                    </ContentTemplate>
+                                </asp:UpdatePanel>
+                            </div>
+                        </td>
+                        <td>
+                            <asp:Label ID="lblenddate" runat="server" Text="To" Visible="true" /></td>
+                        <td>
+                            <div class="field-wrap">
+                                <asp:TextBox ID="tbEDate" ReadOnly="true" TextMode="Date" CssClass="embeded-save-field" runat="server"></asp:TextBox>
+                                <asp:ImageButton CssClass="embeded-save-btn" ID="imgPopup" ImageUrl="~/images/calendarSm_htl_New.png"
+                                    runat="server" OnClick="imgPopup_Click" />
 
-                        <td style="width: 100px">
-                            <asp:Button ID="ButtonSearch" Text="Search" runat="server" OnClick="ButtonSearch_Click" />
+                            </div>
+                            <div style="position: absolute;">
+                                <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                                    <ContentTemplate>
+                                        <asp:Calendar ID="Calendar2" runat="server" BorderWidth="1px"
+                                            DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" Height="200px"
+                                            ShowGridLines="True" Width="387px" BackColor="#FFFFCC" BorderColor="#FFCC66"
+                                            ForeColor="#663399" OnSelectionChanged="Calendar2_SelectionChanged">
+                                            <DayHeaderStyle BackColor="#FFCC66" Font-Bold="True" Height="1px" />
+                                            <NextPrevStyle Font-Size="9pt" ForeColor="#FFFFCC" />
+                                            <OtherMonthDayStyle ForeColor="#CC9966" />
+                                            <SelectedDayStyle BackColor="#CCCCFF" Font-Bold="True" />
+                                            <SelectorStyle BackColor="#FFCC66" />
+                                            <TitleStyle BackColor="#990000" Font-Bold="True" Font-Size="9pt"
+                                                ForeColor="#FFFFCC" />
+                                            <TodayDayStyle BackColor="#FFCC66" ForeColor="White" />
+                                            <WeekendDayStyle Font-Names="Calibri" />
+                                        </asp:Calendar>
+                                    </ContentTemplate>
+                                </asp:UpdatePanel>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" style="padding: 0; margin: 0;">
+                            <asp:Button CssClass="btn float-right" ID="ButtonSearch" Text="Search" runat="server" OnClick="ButtonSearch_Click" />
                         </td>
                     </tr>
                 </table>
-                <br />
             </asp:Panel>
         </div>
-        <table>
-            <tr>
-                <td>
-                    <asp:Label ID="lblstartdate" runat="server" Text="Start Date" Visible="true" /></td>
-                <td>
-                    <asp:TextBox ID="tbSDate" runat="server"></asp:TextBox></td>
-                <td>
-                    <asp:ImageButton ID="imgPopup1" ImageUrl="~/images/calendarSm_htl_New.png"
-                        runat="server" OnClick="imgPopup1_Click" /></td>
-                <td>
-                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                        <ContentTemplate>
-                            <asp:Calendar ID="Calendar1" runat="server" BorderWidth="1px"
-                                DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" Height="200px"
-                                ShowGridLines="True" Width="387px" BackColor="#FFFFCC" BorderColor="#FFCC66"
-                                ForeColor="#663399" OnSelectionChanged="Calendar1_SelectionChanged">
-                                <DayHeaderStyle BackColor="#FFCC66" Font-Bold="True" Height="1px" />
-                                <NextPrevStyle Font-Size="9pt" ForeColor="#FFFFCC" />
-                                <OtherMonthDayStyle ForeColor="#CC9966" />
-                                <SelectedDayStyle BackColor="#CCCCFF" Font-Bold="True" />
-                                <SelectorStyle BackColor="#FFCC66" />
-                                <TitleStyle BackColor="#990000" Font-Bold="True" Font-Size="9pt"
-                                    ForeColor="#FFFFCC" />
-                                <TodayDayStyle BackColor="#FFCC66" ForeColor="White" />
-                                <WeekendDayStyle Font-Names="Calibri" />
-                            </asp:Calendar>
-                        </ContentTemplate>
-                    </asp:UpdatePanel>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <asp:Label ID="lblenddate" runat="server" Text="End Date" Visible="true" /></td>
-                <td>
-
-                    <asp:TextBox ID="tbEDate" runat="server"></asp:TextBox></td>
-                <td>
-                    <asp:ImageButton ID="imgPopup" ImageUrl="~/images/calendarSm_htl_New.png"
-                        runat="server" OnClick="imgPopup_Click" /></td>
-                <td>
-                    <asp:UpdatePanel ID="UpdatePanel2" runat="server">
-                        <ContentTemplate>
-                            <asp:Calendar ID="Calendar2" runat="server" BorderWidth="1px"
-                                DayNameFormat="Shortest" Font-Names="Verdana" Font-Size="8pt" Height="200px"
-                                ShowGridLines="True" Width="387px" BackColor="#FFFFCC" BorderColor="#FFCC66"
-                                ForeColor="#663399" OnSelectionChanged="Calendar2_SelectionChanged">
-                                <DayHeaderStyle BackColor="#FFCC66" Font-Bold="True" Height="1px" />
-                                <NextPrevStyle Font-Size="9pt" ForeColor="#FFFFCC" />
-                                <OtherMonthDayStyle ForeColor="#CC9966" />
-                                <SelectedDayStyle BackColor="#CCCCFF" Font-Bold="True" />
-                                <SelectorStyle BackColor="#FFCC66" />
-                                <TitleStyle BackColor="#990000" Font-Bold="True" Font-Size="9pt"
-                                    ForeColor="#FFFFCC" />
-                                <TodayDayStyle BackColor="#FFCC66" ForeColor="White" />
-                                <WeekendDayStyle Font-Names="Calibri" />
-                            </asp:Calendar>
-                        </ContentTemplate>
-                    </asp:UpdatePanel>
-                </td>
-
-            </tr>
-        </table>
-        <div style="margin-left: auto; margin-right: auto; text-align: center;">
-            <asp:Label ID="lblMessage" runat="server" Text="Please Choose File To Upload" Font-Bold="true"></asp:Label>
+        <div class="panel" style="margin-top: 30px;">
+            <h1 class="header"><span style="width: 105px;">Upload File</span></h1>
+            <table class="search-box">
+                <tr>
+                    <th>
+                        <asp:Label ID="lblMessage" runat="server" Text="Please Choose File To Upload" Font-Bold="true"></asp:Label></th>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:FileUpload ID="ImportFile" runat="server" CssClass="input-small" /></td>
+                    <td>
+                        <asp:Button ID="BtnUpload" runat="server" OnClick="BtnUpload_Click" Text="Import File" CssClass="btn" /></td>
+                    <td>
+                        <asp:Button ID="BtnExport" runat="server" OnClick="BtnExport_Click" Text="Export File" CssClass="btn" /></td>
+                </tr>
+            </table>
         </div>
-        <div style="margin-left: auto; margin-top: auto; margin-bottom: auto; margin-right: auto; text-align: center; display: block;">
-            <asp:FileUpload ID="ImportFile" runat="server" />
-            <asp:Button ID="BtnUpload" runat="server" OnClick="BtnUpload_Click" Text="Import File" Height="21px" />
-            <br />
-        </div>
-        <div style="margin-left: auto; margin-top: auto; margin-bottom: auto; margin-right: auto; text-align: center; display: block;">
-            <asp:Button ID="BtnExport" runat="server" OnClick="BtnExport_Click" Text="Export File" Height="21px" />
-        </div>
-        <asp:GridView ID="gvGCI" runat="server" AutoGenerateColumns="False"
+        <asp:GridView CssClass="myGridClass" AlternatingRowStyle-CssClass="myAltRowClass" PagerStyle-CssClass="myPagerClass" ID="gvGCI" runat="server" AutoGenerateColumns="False"
             DataKeyNames="OrderId,ReasonofReturen,SKU,Country" OnRowCommand="gvGCI_RowCommand" OnRowEditing="gvGCI_RowEditing"
-            OnRowUpdating="gvGCI_RowUpdating" OnRowCancelingEdit="gvGCI_RowCancelingEdit" 
+            OnRowUpdating="gvGCI_RowUpdating" OnRowCancelingEdit="gvGCI_RowCancelingEdit"
             OnRowDataBound="gvGCI_RowDataBound" AllowPaging="True" PageSize="10"
             OnPageIndexChanging="gvGCI_PageIndexChanging">
             <Columns>
@@ -267,6 +278,7 @@
             </Columns>
         </asp:GridView>
         <asp:Label ID="lblPage" runat="server"></asp:Label>
+        </div>
     </form>
 </body>
 </html>

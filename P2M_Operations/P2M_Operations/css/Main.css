@@ -1,0 +1,362 @@
+﻿* {
+    padding: 0;
+    margin: 0;
+    font-size: 9pt;
+    font-family: 'Open Sans';
+}
+
+/* Style the tab */
+.tab {
+    display: table;
+    width: 100%;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    border-bottom: none;
+    background-color: #dddddd;
+    font-size: small;
+    border-bottom: 1px solid #eee;
+    transition: 0.2s;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tabs {
+    display: table-cell;
+    background-color: inherit;
+    padding: 10px 0 10px 0;
+    height: 30px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ddd;
+    transition: 0.2s;
+}
+
+/* Create an active/current tablink class */
+.tab tabSelected {
+    background-color: #ccc;
+    font-weight: bold;
+}
+
+/* Style the tab content */
+.tabcontent {
+    display: block;
+    font-size: small;
+    background-color: #f1f1f1;
+    padding: 20px 20px 20px 20px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+.btn {
+    background-color: #7d7d7d;
+    border: none;
+    color: white;
+    padding: 4px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10pt;
+    border-radius: 4px;
+    transition: 0.2s;
+}
+
+    .btn:hover {
+        background-color: #424242;
+        color: white;
+        cursor: pointer;
+        transition: 0.2s;
+    }
+
+.rounded {
+    border-radius: 50%;
+    padding: 3px 8px;
+    text-align: left;
+}
+
+    .rounded:after {
+        padding: 10px;
+        content: '+';
+    }
+
+.result {
+    text-align: left;
+    width: 70%;
+}
+
+    .result th,
+    .result td {
+        border-bottom: 1px solid #ddd;
+    }
+
+    .result tr:hover {
+        background-color: #ccc;
+    }
+
+#customerProfile {
+    position: inherit;
+    width: 350px;
+    height: 85px;
+    text-align: left;
+    left: 0px;
+    top: 0px;
+    text-decoration: none;
+    text-align: left;
+    border-color: transparent;
+    outline-style: none;
+}
+
+.float-right {
+    float: right;
+}
+
+.float-left {
+    float: left;
+}
+
+.input-small {
+    box-sizing: border-box;
+    width: 100%;
+    height: 25px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    background-color: white;
+    padding: 2px 1px 2px 1px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+.panel {
+    box-sizing: border-box;
+    display: table;
+    padding: 5px;
+    border: 1px solid #eee;
+    vertical-align: middle;
+    border-radius: 2px;
+}
+
+.search-box {
+    
+    text-align: left;
+}
+
+    .search-box td:first-child {
+        padding-right: 5px;
+    }
+
+    .search-box td:nth-child(odd) {
+        padding-right: 10px;
+    }
+
+.container {
+    padding: 20px;
+}
+
+/*Calendar Fields*/
+.field-wrap {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    background-color: #fff;
+    flex-direction: row;
+    /* This bit draws the box around it */
+    border: 1px solid #ccc;
+    padding: 1px;
+    height: 25px;
+    border-radius: 2px;
+}
+
+    .field-wrap:hover {
+        border: 1px solid #888;
+    }
+
+.embeded-save-field {
+    box-sizing: border-box;
+    height: 15px;
+    /* Tell the input to use all the available space */
+    flex-grow: 2;
+    /* And hide the input's outline, so the form looks like the outline */
+    border: none;
+}
+
+    .embeded-save-field:focus {
+        outline: none;
+    }
+
+.embeded-save-btn {
+    /* Just a little styling to make it pretty 
+    border: 1px solid #fff;
+    background: #aaa;
+    color: white;
+    width: 30px;*/
+}
+
+    .embeded-save-btn:hover {
+        /* background-color: #878787;*/
+        cursor: pointer;
+    }
+
+
+/* Grid View Styling  */
+
+.myGridClass {
+    width: 100%;
+    /*this will be the color of the odd row*/
+    background-color: #fff;
+    margin: 30px 0 10px 0;
+    border: solid 1px #525252;
+    border-collapse: collapse;
+}
+.myGridClassColored {
+    width: 100%;
+    /*this will be the color of the odd row*/
+    background-color: #fff;
+    margin: 30px 0 10px 0;
+    border: solid 1px #525252;
+    border-collapse: collapse;
+}
+    /*data elements*/
+    .myGridClass td {
+        padding: 2px;
+        border: solid 1px #c1c1c1;
+        color: #717171;
+    }
+.myGridClassColored td {
+    padding: 2px;
+    border: solid 1px #c1c1c1;
+}
+    /*header elements*/
+    .myGridClass th {
+        padding: 4px 2px;
+        color: #fff;
+        background: #424242;
+        border-left: solid 1px #525252;
+        font-size: 0.9em;
+    }
+.myGridClassColored th {
+    padding: 4px 2px;
+    color: #fff;
+    background: #424242;
+    border-left: solid 1px #525252;
+    font-size: 0.9em;
+}
+    /*his will be the color of even row*/
+    .myGridClass .myAltRowClass {
+        background: #fcfcfc repeat-x top;
+    }
+.myGridClassColored .myAltRowClass {
+    background: #fcfcfc repeat-x top;
+}
+    /*and finally, we style the pager on the bottom*/
+    .myGridClass .myPagerClass {
+        background: #424242;
+    }
+.myGridClassColored .myPagerClass {
+    background: #424242;
+}
+        .myGridClass .myPagerClass table {
+            margin: 5px 0;
+        }
+.myGridClassColored .myPagerClass table {
+    margin: 5px 0;
+}
+
+        .myGridClass .myPagerClass td {
+            border-width: 0;
+            padding: 0 6px;
+            border-left: solid 1px #666;
+            font-weight: bold;
+            color: #fff;
+            line-height: 12px;
+        }
+.myGridClassColored .myPagerClass td {
+    border-width: 0;
+    padding: 0 6px;
+    border-left: solid 1px #666;
+    font-weight: bold;
+    color: #fff;
+    line-height: 12px;
+}
+
+        .myGridClass .myPagerClass a {
+            color: #aaa;
+            text-decoration: none;
+        }
+.myGridClassColored .myPagerClass a {
+    color: #666;
+    text-decoration: none;
+}
+
+            .myGridClass .myPagerClass a:hover {
+                color: #fff;
+                text-decoration: none;
+            }
+.myGridClassColored .myPagerClass a:hover {
+    color: #000;
+    text-decoration: none;
+}
+
+.header {
+    text-align: center;
+    margin-top: -15px;
+    height: 20px;
+    line-height: 20px;
+}
+
+    .header span {
+        display: block;
+        background-color: #fff;
+        width: 70px;
+        font-size: 11pt;
+    }
+
+.star:after {
+    content: ' *';
+    color: red;
+    font-size: 8pt;
+}
+
+.no-margins {
+    margin: 0;
+    padding: 0;
+}
+
+.border-collapse {
+    border-collapse: collapse;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar {
+    height: 10px;
+}
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #878787;
+}
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
+.scrollable2 {
+    overflow-x: auto;
+}
+
+.scroll-table td, .scroll-table th {
+    width: auto;
+    min-width: 200px;
+}

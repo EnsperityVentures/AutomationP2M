@@ -9,3 +9,14 @@ C:\Users\Odai\Documents\GitHub\AutomationP2M\P2M_Operations\P2M_Operations_DAL\o
 C:\Users\Odai\Documents\GitHub\AutomationP2M\P2M_Operations\P2M_Operations_DAL\obj\Release\netstandard2.0\P2M_Operations_DAL.AssemblyInfo.cs
 C:\Users\Odai\Documents\GitHub\AutomationP2M\P2M_Operations\P2M_Operations_DAL\obj\Release\netstandard2.0\P2M_Operations_DAL.dll
 C:\Users\Odai\Documents\GitHub\AutomationP2M\P2M_Operations\P2M_Operations_DAL\obj\Release\netstandard2.0\P2M_Operations_DAL.pdb
+C:\Users\Power2Motivate\Documents\GitHub\AutomationP2M\P2M_Operations\P2M_Operations_DAL\bin\Release\netstandard2.0\P2M_Operations_DAL.deps.json
+C:\Users\Power2Motivate\Documents\GitHub\AutomationP2M\P2M_Operations\P2M_Operations_DAL\bin\Release\netstandard2.0\P2M_Operations_DAL.dll
+C:\Users\Power2Motivate\Documents\GitHub\AutomationP2M\P2M_Operations\P2M_Operations_DAL\bin\Release\netstandard2.0\P2M_Operations_DAL.pdb
+C:\Users\Power2Motivate\Documents\GitHub\AutomationP2M\P2M_Operations\P2M_Operations_DAL\bin\Release\netstandard2.0\P2M_Operations_Entities.dll
+C:\Users\Power2Motivate\Documents\GitHub\AutomationP2M\P2M_Operations\P2M_Operations_DAL\bin\Release\netstandard2.0\P2M_Operations_Entities.pdb
+C:\Users\Power2Motivate\Documents\GitHub\AutomationP2M\P2M_Operations\P2M_Operations_DAL\obj\Release\netstandard2.0\P2M_Operations_DAL.csprojResolveAssemblyReference.cache
+C:\Users\Power2Motivate\Documents\GitHub\AutomationP2M\P2M_Operations\P2M_Operations_DAL\obj\Release\netstandard2.0\P2M_Operations_DAL.csproj.CoreCompileInputs.cache
+C:\Users\Power2Motivate\Documents\GitHub\AutomationP2M\P2M_Operations\P2M_Operations_DAL\obj\Release\netstandard2.0\P2M_Operations_DAL.AssemblyInfoInputs.cache
+C:\Users\Power2Motivate\Documents\GitHub\AutomationP2M\P2M_Operations\P2M_Operations_DAL\obj\Release\netstandard2.0\P2M_Operations_DAL.AssemblyInfo.cs
+C:\Users\Power2Motivate\Documents\GitHub\AutomationP2M\P2M_Operations\P2M_Operations_DAL\obj\Release\netstandard2.0\P2M_Operations_DAL.dll
+C:\Users\Power2Motivate\Documents\GitHub\AutomationP2M\P2M_Operations\P2M_Operations_DAL\obj\Release\netstandard2.0\P2M_Operations_DAL.pdb

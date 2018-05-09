@@ -277,7 +277,7 @@ namespace P2M_Operations.WebPages.ClientsInvoices
                 Calendar2.Visible = false;
                 Calendar1.Visible = true;
             }
-            sdate = Convert.ToDateTime(tbSDate.Text);
+            // sdate = Convert.ToDateTime(tbSDate.Text);
         }
         protected void imgPopup_Click(object sender, ImageClickEventArgs e)
         {

@@ -4,8 +4,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>OmanFloat</title>
-
+    <title>Oman Float</title>
+    <link href="../../css/Main.css" rel="stylesheet" />
     <script type="text/javascript">
         // To show the dialog & But the Selected Date in The TextBox
         var txt;
@@ -34,8 +34,11 @@
 <body>
     <form id="OmanFloatform" runat="server">
 
-        <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal">
+        <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" CssClass="tab" StaticMenuItemStyle-CssClass="tabs" StaticHoverStyle-BackColor="#f1f1f1"
+            StaticSelectedStyle-BackColor="#f1f1f1" StaticSelectedStyle-Font-Bold="true" StaticMenuItemStyle-Height="20px" StaticMenuItemStyle-VerticalPadding="15px"
+            StaticMenuItemStyle-HorizontalPadding="10px" StaticMenuItemStyle-ForeColor="Black">
             <Items>
+                <asp:MenuItem ImageUrl="~/images/P2M-Logo_1.png" Selectable="false"></asp:MenuItem>
                 <asp:MenuItem NavigateUrl="~/WebPages/ClientsInvoices/ClientInvoice.aspx" Text="Clients Invoices" Value="Clients Invoices"></asp:MenuItem>
                 <asp:MenuItem NavigateUrl="~/WebPages/Company/CompanyPage.aspx" Text="Company" Value="New Item"></asp:MenuItem>
                 <asp:MenuItem NavigateUrl="~/WebPages/Currency/CurrencyPage.aspx" Text="Currency" Value="New Item"></asp:MenuItem>
@@ -48,118 +51,119 @@
                 <asp:MenuItem NavigateUrl="~/WebPages/OmanAmount/OmanAmountPage.aspx" Text="Oman Amount" Value="New Item"></asp:MenuItem>
             </Items>
         </asp:Menu>
-        <div style="margin-left: auto; margin-top: auto; margin-bottom: auto; margin-right: auto; text-align: center; display: block;">
-            <asp:Panel ID="PanelSearch" runat="server" DefaultButton="ButtonSearch">
-                <table>
-                    <tr>
-                        <td>
-                            <asp:Label ID="lblSearchOrderNo" runat="server" Text="OrderNo"></asp:Label></td>
-                        <td>
-                            <asp:TextBox ID="tbSearchOrderNo" runat="server" MaxLength="50" Width="200px" placeholder="OrderNo..."></asp:TextBox></td>
-                    </tr>
-                    <tr>
-                        <td style="width: 100px">
-                            <asp:Button ID="ButtonSearch" Text="Search" runat="server" OnClick="ButtonSearch_Click" />
-                        </td>
-                    </tr>
-                </table>
-                <br />
-            </asp:Panel>
-        </div>
-        <asp:GridView ID="gvOF" runat="server" AutoGenerateColumns="False" DataKeyNames="OrderNo" OnRowCommand="gvOF_RowCommand" OnRowEditing="gvOF_RowEditing" OnRowUpdating="gvOF_RowUpdating" OnRowCancelingEdit="gvOF_RowCancelingEdit" OnRowDataBound="gvOF_RowDataBound">
-            <Columns>
-                <asp:TemplateField HeaderText="Order Number">
-                    <EditItemTemplate>
-                        <table style="width: 100%">
-                            <tr>
-                                <td>
-                                    <asp:Label ID="lblOrderNo" runat="server" Text='<%# Bind("OrderNo") %>'></asp:Label></td>
-                            </tr>
-                        </table>
-                    </EditItemTemplate>
-                    <ItemTemplate>
-                        <asp:Label ID="lblOrderNo" runat="server" Text='<%# Bind("OrderNo") %>'></asp:Label>
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="Order Date">
-                    <EditItemTemplate>
-                        <table style="width: 100%">
-                            <tr>
-                                <td>
-                                    <asp:Label ID="lblOrderDate" runat="server" Text='<%# Bind("OrderDate") %>'></asp:Label></td>
-                            </tr>
-                        </table>
-                    </EditItemTemplate>
-                    <ItemTemplate>
-                        <asp:Label ID="lblOrderDate" runat="server" Text='<%# Bind("OrderDate") %>'></asp:Label>
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="Member Name">
-                    <EditItemTemplate>
-                        <table style="width: 100%">
-                            <tr>
-                                <td>
-                                    <asp:Label ID="lblMemberName" runat="server" Text='<%# Bind("MemberName") %>' MaxLength="50" Width="200px"></asp:Label></td>
-                            </tr>
-                        </table>
-                    </EditItemTemplate>
-                    <ItemTemplate>
-                        <asp:Label ID="lblMemberName" runat="server" Text='<%# Bind("MemberName") %>'></asp:Label>
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="Quantity">
-                    <EditItemTemplate>
-                        <table style="width: 100%">
-                            <tr>
-                                <td>
-                                    <asp:TextBox ID="tbQuantity" runat="server" Text='<%# Bind("Quantity") %>' MaxLength="50" Width="200px"></asp:TextBox></td>
-                            </tr>
-                        </table>
-                    </EditItemTemplate>
-                    <ItemTemplate>
-                        <asp:Label ID="lblQuantity" runat="server" Text='<%# Bind("Quantity") %>'></asp:Label>
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="Total cost">
-                    <EditItemTemplate>
-                        <table style="width: 100%">
-                            <tr>
-                                <td>
-                                    <asp:TextBox ID="tbTotalcost" runat="server" Text='<%# Bind("Totalcost") %>' MaxLength="50" Width="200px"></asp:TextBox></td>
-                            </tr>
-                        </table>
-                    </EditItemTemplate>
-                    <ItemTemplate>
-                        <asp:label ID="lblTotalcost" runat="server" Text='<%# Bind("Totalcost") %>'></asp:label>
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="Delivery Fees">
-                    <EditItemTemplate>
-                        <table style="width: 100%">
-                            <tr>
-                                <td>
-                                    <asp:TextBox ID="tbDeliveryfees" runat="server" Text='<%# Bind("Deliveryfees") %>' MaxLength="50" Width="200px"></asp:TextBox></td>
-                            </tr>
-                        </table>
-                    </EditItemTemplate>
-                    <ItemTemplate>
-                        <asp:label ID="lblDeliveryfees" runat="server" Text='<%# Bind("Deliveryfees") %>'></asp:label>
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="Total Cost+Delivery">
-                    <EditItemTemplate>
-                        <table style="width: 100%">
-                            <tr>
-                                <td>
-                                    <asp:TextBox ID="tbTCWD" runat="server" Text='<%# Bind("TotalCostwithDelivery") %>' MaxLength="50" Width="200px"></asp:TextBox></td>
-                            </tr>
-                        </table>
-                    </EditItemTemplate>
-                    <ItemTemplate>
-                        <asp:Label ID="lblTCWD" runat="server" Text='<%# Bind("TotalCostwithDelivery") %>'></asp:Label>
-                    </ItemTemplate>
-                </asp:TemplateField>
-<%--                <asp:TemplateField HeaderText="Total Remaining Amount">
+
+        <div class="container">
+            <div style="width: 100%;">
+                <asp:Panel ID="PanelSearch" runat="server" DefaultButton="ButtonSearch">
+                    <table class="search-box float-right">
+                        <tr>
+                            <td>
+                                <asp:Label ID="lblSearchOrderNo" runat="server" Text="Order No"></asp:Label></td>
+                            <td>
+                                <asp:TextBox ID="tbSearchOrderNo" runat="server" MaxLength="50" CssClass="input-small" placeholder="Order No..."></asp:TextBox></td>
+
+                            <td style="padding: 0; margin: 0;">
+                                <asp:Button CssClass="btn" ID="ButtonSearch" Text="Search" runat="server" OnClick="ButtonSearch_Click" />
+                            </td>
+                        </tr>
+                    </table>
+                </asp:Panel>
+            </div>
+
+            <asp:GridView CssClass="myGridClass" AlternatingRowStyle-CssClass="myAltRowClass" PagerStyle-CssClass="myPagerClass" ID="gvOF" runat="server" AutoGenerateColumns="False" DataKeyNames="OrderNo" OnRowCommand="gvOF_RowCommand" OnRowEditing="gvOF_RowEditing" OnRowUpdating="gvOF_RowUpdating" OnRowCancelingEdit="gvOF_RowCancelingEdit" OnRowDataBound="gvOF_RowDataBound">
+                <Columns>
+                    <asp:TemplateField HeaderText="Order Number">
+                        <EditItemTemplate>
+                            <table style="width: 100%">
+                                <tr>
+                                    <td>
+                                        <asp:Label ID="lblOrderNo" runat="server" Text='<%# Bind("OrderNo") %>'></asp:Label></td>
+                                </tr>
+                            </table>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="lblOrderNo" runat="server" Text='<%# Bind("OrderNo") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Order Date">
+                        <EditItemTemplate>
+                            <table style="width: 100%">
+                                <tr>
+                                    <td>
+                                        <asp:Label ID="lblOrderDate" runat="server" Text='<%# Bind("OrderDate") %>'></asp:Label></td>
+                                </tr>
+                            </table>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="lblOrderDate" runat="server" Text='<%# Bind("OrderDate") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Member Name">
+                        <EditItemTemplate>
+                            <table style="width: 100%">
+                                <tr>
+                                    <td>
+                                        <asp:Label ID="lblMemberName" runat="server" Text='<%# Bind("MemberName") %>' MaxLength="50" CssClass="input-small"></asp:Label></td>
+                                </tr>
+                            </table>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="lblMemberName" runat="server" Text='<%# Bind("MemberName") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Quantity">
+                        <EditItemTemplate>
+                            <table style="width: 100%">
+                                <tr>
+                                    <td>
+                                        <asp:TextBox ID="tbQuantity" runat="server" Text='<%# Bind("Quantity") %>' MaxLength="50" CssClass="input-small"></asp:TextBox></td>
+                                </tr>
+                            </table>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="lblQuantity" runat="server" Text='<%# Bind("Quantity") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Total cost">
+                        <EditItemTemplate>
+                            <table style="width: 100%">
+                                <tr>
+                                    <td>
+                                        <asp:TextBox ID="tbTotalcost" runat="server" Text='<%# Bind("Totalcost") %>' MaxLength="50" CssClass="input-small"></asp:TextBox></td>
+                                </tr>
+                            </table>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="lblTotalcost" runat="server" Text='<%# Bind("Totalcost") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Delivery Fees">
+                        <EditItemTemplate>
+                            <table style="width: 100%">
+                                <tr>
+                                    <td>
+                                        <asp:TextBox ID="tbDeliveryfees" runat="server" Text='<%# Bind("Deliveryfees") %>' MaxLength="50" CssClass="input-small"></asp:TextBox></td>
+                                </tr>
+                            </table>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="lblDeliveryfees" runat="server" Text='<%# Bind("Deliveryfees") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Total Cost+Delivery">
+                        <EditItemTemplate>
+                            <table style="width: 100%">
+                                <tr>
+                                    <td>
+                                        <asp:TextBox ID="tbTCWD" runat="server" Text='<%# Bind("TotalCostwithDelivery") %>' MaxLength="50" CssClass="input-small"></asp:TextBox></td>
+                                </tr>
+                            </table>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="lblTCWD" runat="server" Text='<%# Bind("TotalCostwithDelivery") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <%--                <asp:TemplateField HeaderText="Total Remaining Amount">
                     <EditItemTemplate>
                         <table style="width: 100%">
                             <tr>
@@ -172,48 +176,48 @@
                         <asp:Label ID="lbltbTRA" runat="server" Text='<%# Bind("TotalRemainingAmount") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>--%>
-                <asp:TemplateField HeaderText="Status">
-                    <EditItemTemplate>
-                        <table style="width: 100%">
-                            <tr>
-                                <td>
-                                    <asp:TextBox ID="tbStatus" runat="server" Text='<%# Bind("Status") %>' MaxLength="50" Width="200px"></asp:TextBox></td>
-                            </tr>
-                        </table>
-                    </EditItemTemplate>
-                    <ItemTemplate>
-                        <asp:label ID="lblStatus" runat="server" Text='<%# Bind("Status") %>'></asp:label>
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="Delivery Date">
-                    <EditItemTemplate>
-                        <table style="width: 100%">
-                            <tr>
-                                <td>
-                                    <asp:TextBox ID="tbDD" runat="server" Text='<%# Bind("DeliveryDate") %>' MaxLength="50" Width="200px"></asp:TextBox></td>
-                            </tr>
-                        </table>
-                    </EditItemTemplate>
-                    <ItemTemplate>
-                        <asp:label ID="lblDD" runat="server" Text='<%# Bind("DeliveryDate") %>'></asp:label>
-                    </ItemTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="Card Type+Amount">
-                    <EditItemTemplate>
-                        <table style="width: 100%">
-                            <tr>
-                                <td>
-                                    <asp:TextBox ID="tbCardTypeandAmount" runat="server" Text='<%# Bind("CardTypeandAmount") %>' MaxLength="50" Width="200px"></asp:TextBox></td>
-                            </tr>
-                        </table>
-                    </EditItemTemplate>
-                    <ItemTemplate>
-                        <asp:label ID="lblCardTypeandAmount" runat="server" Text='<%# Bind("CardTypeandAmount") %>'></asp:label>
-                    </ItemTemplate>
-                </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Status">
+                        <EditItemTemplate>
+                            <table style="width: 100%">
+                                <tr>
+                                    <td>
+                                        <asp:TextBox ID="tbStatus" runat="server" Text='<%# Bind("Status") %>' MaxLength="50" CssClass="input-small"></asp:TextBox></td>
+                                </tr>
+                            </table>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="lblStatus" runat="server" Text='<%# Bind("Status") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Delivery Date">
+                        <EditItemTemplate>
+                            <table style="width: 100%">
+                                <tr>
+                                    <td>
+                                        <asp:TextBox ID="tbDD" runat="server" Text='<%# Bind("DeliveryDate") %>' MaxLength="50" Width="200px"></asp:TextBox></td>
+                                </tr>
+                            </table>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="lblDD" runat="server" Text='<%# Bind("DeliveryDate") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Card Type+Amount">
+                        <EditItemTemplate>
+                            <table style="width: 100%">
+                                <tr>
+                                    <td>
+                                        <asp:TextBox ID="tbCardTypeandAmount" runat="server" Text='<%# Bind("CardTypeandAmount") %>' MaxLength="50" CssClass="input-small"></asp:TextBox></td>
+                                </tr>
+                            </table>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="lblCardTypeandAmount" runat="server" Text='<%# Bind("CardTypeandAmount") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
 
 
-               <%-- <asp:TemplateField HeaderText="Date Of Payment">
+                    <%-- <asp:TemplateField HeaderText="Date Of Payment">
                     <EditItemTemplate>
                         <table style="width: 100%">
                             <tr>
@@ -228,27 +232,32 @@
                 </asp:TemplateField>--%>
 
 
-                <asp:CommandField ShowEditButton="True" />
-                <asp:TemplateField>
-                    <ItemTemplate>
-                        <asp:LinkButton runat="server" ID="btnDelete" Text="Delete" CommandName="DeleteOF" CommandArgument='<%#Eval("OrderNo")%>' />
-                    </ItemTemplate>
-                </asp:TemplateField>
-            </Columns>
-        </asp:GridView>
+                    <asp:CommandField ShowEditButton="True" />
+                    <asp:TemplateField>
+                        <ItemTemplate>
+                            <asp:LinkButton runat="server" ID="btnDelete" Text="Delete" CommandName="DeleteOF" CommandArgument='<%#Eval("OrderNo")%>' />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                </Columns>
+            </asp:GridView>
 
-        <div style="margin-left: auto; margin-right: auto; text-align: center;">
-            <asp:Label ID="lblMessage" runat="server" Text="Please Choose File To Upload" Font-Bold="true"></asp:Label>
-        </div>
-
-        <div style="margin-left: auto; margin-top: auto; margin-bottom: auto; margin-right: auto; text-align: center; display: block;">
-            <asp:FileUpload ID="ImportFile" runat="server" />
-            <asp:Button ID="BtnUpload" runat="server" OnClick="BtnUpload_Click" Text="Import File" Height="21px" />
-            <br />
-        </div>
-        <br />
-        <div style="margin-left: auto; margin-top: auto; margin-bottom: auto; margin-right: auto; text-align: center; display: block;">
-            <asp:Button ID="BtnExport" runat="server" OnClick="BtnExport_Click" Text="Export File" Height="21px" />
+            <div class="panel" style="margin-top: 30px;">
+                <h1 class="header"><span style="width: 105px;">Upload File</span></h1>
+                <table class="search-box">
+                    <tr>
+                        <th>
+                            <asp:Label ID="lblMessage" runat="server" Text="Please Choose File To Upload" Font-Bold="true"></asp:Label></th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:FileUpload ID="ImportFile" runat="server" CssClass="input-small" /></td>
+                        <td>
+                            <asp:Button ID="BtnUpload" runat="server" OnClick="BtnUpload_Click" Text="Import File" CssClass="btn" /></td>
+                        <td>
+                            <asp:Button ID="BtnExport" runat="server" OnClick="BtnExport_Click" Text="Export File" CssClass="btn" /></td>
+                    </tr>
+                </table>
+            </div>
         </div>
 
     </form>

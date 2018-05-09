@@ -76,15 +76,6 @@ namespace P2M_Operations.WebPages.OmanAmounts {
         protected global::System.Web.UI.WebControls.TextBox tbamount;
         
         /// <summary>
-        /// ButtonAmount control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonAmount;
-        
-        /// <summary>
         /// lblstartdate control.
         /// </summary>
         /// <remarks>
@@ -110,5 +101,14 @@ namespace P2M_Operations.WebPages.OmanAmounts {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton imgPopup1;
+        
+        /// <summary>
+        /// ButtonAmount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonAmount;
     }
 }

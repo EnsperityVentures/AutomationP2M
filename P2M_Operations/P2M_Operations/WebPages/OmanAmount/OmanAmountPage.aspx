@@ -4,7 +4,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>OmanAmount</title>
+    <title>Oman Amount</title>
+    <link href="../../css/Main.css" rel="stylesheet" />
     <script type="text/javascript">
         // To show the dialog & But the Selected Date in The TextBox
         var txt;
@@ -31,8 +32,11 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal">
+        <asp:Menu ID="Menu1" runat="server" Orientation="Horizontal" CssClass="tab" StaticMenuItemStyle-CssClass="tabs" StaticHoverStyle-BackColor="#f1f1f1"
+            StaticSelectedStyle-BackColor="#f1f1f1" StaticSelectedStyle-Font-Bold="true" StaticMenuItemStyle-Height="20px" StaticMenuItemStyle-VerticalPadding="15px"
+            StaticMenuItemStyle-HorizontalPadding="10px" StaticMenuItemStyle-ForeColor="Black">
             <Items>
+                <asp:MenuItem ImageUrl="~/images/P2M-Logo_1.png" Selectable="false"></asp:MenuItem>
                 <asp:MenuItem NavigateUrl="~/WebPages/ClientsInvoices/ClientInvoice.aspx" Text="Clients Invoices" Value="Clients Invoices"></asp:MenuItem>
                 <asp:MenuItem NavigateUrl="~/WebPages/Company/CompanyPage.aspx" Text="Company" Value="New Item"></asp:MenuItem>
                 <asp:MenuItem NavigateUrl="~/WebPages/Currency/CurrencyPage.aspx" Text="Currency" Value="New Item"></asp:MenuItem>
@@ -45,24 +49,24 @@
                 <asp:MenuItem NavigateUrl="~/WebPages/OmanAmount/OmanAmountPage.aspx" Text="Oman Amount" Value="New Item"></asp:MenuItem>
             </Items>
         </asp:Menu>
-        <asp:GridView ID="gvOF" runat="server" AutoGenerateColumns="False" DataKeyNames="ID" OnRowCommand="gvOF_RowCommand" OnRowEditing="gvOF_RowEditing" OnRowUpdating="gvOF_RowUpdating" OnRowCancelingEdit="gvOF_RowCancelingEdit" OnRowDataBound="gvOF_RowDataBound">
-            <Columns>
+        <div class="container">
+            <asp:GridView CssClass="myGridClass" AlternatingRowStyle-CssClass="myAltRowClass" PagerStyle-CssClass="myPagerClass" Width="50%" ID="gvOF" runat="server" AutoGenerateColumns="False" DataKeyNames="ID" OnRowCommand="gvOF_RowCommand" OnRowEditing="gvOF_RowEditing" OnRowUpdating="gvOF_RowUpdating" OnRowCancelingEdit="gvOF_RowCancelingEdit" OnRowDataBound="gvOF_RowDataBound">
+                <Columns>
+                    <asp:TemplateField HeaderText="Payments To Oman">
+                        <EditItemTemplate>
+                            <table style="width: 100%">
+                                <tr>
+                                    <td>
+                                        <asp:TextBox ID="tbP2O" runat="server" Text='<%# Bind("PaymentstoOman") %>' MaxLength="50" Width="100px"></asp:TextBox></td>
+                                </tr>
+                            </table>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="lblP2O" runat="server" Text='<%# Bind("PaymentstoOman") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
 
-                <asp:TemplateField HeaderText="Payments To Oman">
-                    <EditItemTemplate>
-                        <table style="width: 100%">
-                            <tr>
-                                <td>
-                                    <asp:TextBox ID="tbP2O" runat="server" Text='<%# Bind("PaymentstoOman") %>' MaxLength="50" Width="100px"></asp:TextBox></td>
-                            </tr>
-                        </table>
-                    </EditItemTemplate>
-                    <ItemTemplate>
-                        <asp:Label ID="lblP2O" runat="server" Text='<%# Bind("PaymentstoOman") %>'></asp:Label>
-                    </ItemTemplate>
-                </asp:TemplateField>
-
-<%--                <asp:TemplateField HeaderText="Total Remaining Amount">
+                    <%--                <asp:TemplateField HeaderText="Total Remaining Amount">
                     <EditItemTemplate>
                         <table style="width: 100%">
                             <tr>
@@ -75,59 +79,61 @@
                         <asp:Label ID="lbltbTRA" runat="server" Text='<%# Bind("TotalRemainingAmount") %>'></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>--%>
-                <asp:TemplateField HeaderText="Date Of Payment">
-                    <EditItemTemplate>
-                        <table style="width: 100%">
-                            <tr>
-                                <td>
-                                    <asp:Label ID="lblDateofpayment" runat="server" Text='<%# Bind("Dateofpayment") %>' MaxLength="50" Width="100px"></asp:Label></td>
-                            </tr>
-                        </table>
-                    </EditItemTemplate>
-                    <ItemTemplate>
-                        <asp:Label ID="lblDateofpayment" runat="server" Text='<%# Bind("Dateofpayment") %>'></asp:Label>
-                    </ItemTemplate>
-                </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Date Of Payment">
+                        <EditItemTemplate>
+                            <table style="width: 100%">
+                                <tr>
+                                    <td>
+                                        <asp:Label ID="lblDateofpayment" runat="server" Text='<%# Bind("Dateofpayment") %>' MaxLength="50" Width="100px"></asp:Label></td>
+                                </tr>
+                            </table>
+                        </EditItemTemplate>
+                        <ItemTemplate>
+                            <asp:Label ID="lblDateofpayment" runat="server" Text='<%# Bind("Dateofpayment") %>'></asp:Label>
+                        </ItemTemplate>
+                    </asp:TemplateField>
 
 
-                <asp:CommandField ShowEditButton="True" />
-                <asp:TemplateField>
-                    <ItemTemplate>
-                        <asp:LinkButton runat="server" ID="btnDelete" Text="Delete" CommandName="DeleteOA" CommandArgument='<%#Eval("ID")%>' />
-                    </ItemTemplate>
-                </asp:TemplateField>
-            </Columns>
-        </asp:GridView>
-        <table>
-            <tr>
-                <td>
-                    <asp:Label ID="lblTRAmount" runat="server" Text="Total Remaining Amount is :" Width="100%"></asp:Label>
-                </td>
-                <td>
-                    <asp:Label ID="lblTAmount" runat="server" Width="100%"></asp:Label></td>
-            </tr>
-            <tr>
-                <td>
-                    <asp:Label ID="lblAmount" runat="server" Text="Payment Amount" Width="100%"></asp:Label></td>
-                <td>
-                    <asp:TextBox ID="tbamount" runat="server" MaxLength="50" Width="200px" placeholder="0.0"></asp:TextBox></td>
-                <td>
-                    <asp:Button ID="ButtonAmount" runat="server" OnClick="BtnAmount_Click" OnClientClick="Confirm()" Text="Add Amount" Height="21px" /></td>
-
-            </tr>
-            <tr>
-                <td>
-                    <asp:Label ID="lblstartdate" runat="server" Text="Amount Date" Visible="true" /></td>
-                <td>
-                    <asp:TextBox ID="tbDate" runat="server" Width="100%"></asp:TextBox>
-
-                </td>
-
-                <td>
-
-                    <asp:ImageButton ID="imgPopup1" ImageUrl="~/images/calendarSm_htl_New.png" runat="server" /></td>
-            </tr>
-        </table>
+                    <asp:CommandField ShowEditButton="True" />
+                    <asp:TemplateField>
+                        <ItemTemplate>
+                            <asp:LinkButton runat="server" ID="btnDelete" Text="Delete" CommandName="DeleteOA" CommandArgument='<%#Eval("ID")%>' />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                </Columns>
+            </asp:GridView>
+            <table class="search-box">
+                <tr>
+                    <th>
+                        <asp:Label ID="lblTRAmount" runat="server" Text="Total remaining amount: " Width="100%"></asp:Label>
+                    </th>
+                    <th>
+                        <asp:Label ID="lblTAmount" runat="server" Width="100%"></asp:Label></th>
+                </tr>
+            </table>
+            <div class="panel" style="margin-top: 30px; width: 50%;">
+                <h1 class="header"><span>Search</span></h1>
+                <table class="search-box" style="width: 100%;">
+                    <tr>
+                        <td>
+                            <asp:Label ID="lblAmount" runat="server" Text="Payment Amount" Width="100%"></asp:Label></td>
+                        <td>
+                            <asp:TextBox ID="tbamount" runat="server" MaxLength="50" CssClass="input-small" placeholder="Payment Amount..."></asp:TextBox></td>
+                        <td>
+                            <asp:Label ID="lblstartdate" runat="server" Text="Amount Date" Visible="true" />
+                        </td>
+                        <td>
+                            <div class="field-wrap">
+                                <asp:TextBox CssClass="embeded-save-field" TextMode="Date" ID="tbDate" runat="server"></asp:TextBox>
+                                <asp:ImageButton CssClass="embeded-save-btn" ID="imgPopup1" ImageUrl="~/images/calendarSm_htl_New.png" runat="server" />
+                            </div>
+                        </td>
+                        <td style="padding: 0; margin: 0;">
+                            <asp:Button CssClass="btn" ID="ButtonAmount" runat="server" OnClick="BtnAmount_Click" OnClientClick="Confirm()" Text="+ Add" /></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
     </form>
 </body>
 </html>

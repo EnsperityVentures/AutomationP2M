@@ -202,7 +202,7 @@ namespace P2M_Operations.WebPages.DailyOrder
                     e.Row.BackColor = System.Drawing.Color.Black;
                     e.Row.ForeColor = System.Drawing.Color.White;
                 }
-
+                
 
 
             }
